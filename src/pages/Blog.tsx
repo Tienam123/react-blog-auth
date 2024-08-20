@@ -1,7 +1,11 @@
 import {Link} from "react-router-dom";
 import Posts from "../components/Posts.tsx";
+import {useEffect} from "react";
+import axios from "axios";
 
 const Blog = () => {
+    useEffect(() => {
+    }, []);
     return (
 
         <div className='px-2'>

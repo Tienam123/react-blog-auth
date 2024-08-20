@@ -1,19 +1,16 @@
 import {useFormik} from "formik";
-import {addPost} from "../store/slice/PostSlice.ts";
-import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
 
 const AddPost = () => {
     const navigate = useNavigate();
-    const dispatch = useDispatch();
     const formik = useFormik({
         initialValues: {
             title: '',
             body: ''
         },
-        onSubmit: (values) => {
-            dispatch(addPost({id: Date.now(), ...values}))
+        onSubmit: (values: { title: string, body: string }) => {
             formik.resetForm();
+            console.log(values)
             navigate('/blog')
         }
     })
@@ -25,7 +22,7 @@ const AddPost = () => {
                     value={formik.values.title} onChange={formik.handleChange}
                 />
                 <textarea
-                    name="body" className='p-2 border-2 border-solid border-teal-700' cols="30" rows="3"
+                    name="body" className='p-2 border-2 border-solid border-teal-700' cols={30} rows={3}
                     style={{resize: 'none'}}
                     onChange={formik.handleChange}
                     value={formik.values.body}

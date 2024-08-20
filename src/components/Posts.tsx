@@ -1,10 +1,4 @@
-import {useDispatch, useSelector} from "react-redux";
-import {AppState, Post} from "../store/action.ts";
-import {removePost} from "../store/slice/PostSlice.ts";
-
 const Posts = () => {
-    const posts: Post[] = useSelector((state:AppState) => state);
-    const dispatch = useDispatch();
     ;
     return (
         <ul className='mt-5'>
